@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الهلالي للعطور - الفخامة والأصالة في كل قطرة</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0B0E17',
+                        navyCard: '#121A29',
+                        navyLight: '#1A253A',
+                        goldPrimary: '#D4AF37',
+                        goldLight: '#F3E5AB',
+                        goldDark: '#AA820A',
+                        pearlWhite: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(212, 175, 55, 0.25)',
+                        'gold-strong': '0 0 35px rgba(212, 175, 55, 0.45)',
+                        'card-glow': '0 10px 30px -5px rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0B0E17;
+            color: #F8F9FA;
+            overflow-x: hidden;
+        }
+
+        /* Gold Gradient Elements */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 50%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA820A 100%);
+        }
+
+        .border-gold-gradient {
+            border-image: linear-gradient(135deg, #F3E5AB, #D4AF37, #AA820A) 1;
+        }
+
+        /* Floating Animation */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        /* Shimmer Effect */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer-btn {
+            background: linear-gradient(90deg, #D4AF37 0%, #FFF5D0 50%, #AA820A 100%);
+            background-size: 200% 100%;
+            animation: shimmer 4s infinite;
+        }
+
+        /* Custom Glass Card */
+        .glass-card {
+            background: rgba(18, 26, 41, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0E17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F3E5AB;
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed -top-40 -right-40 w-96 h-96 bg-goldPrimary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed top-1/2 -left-40 w-96 h-96 bg-blue-900/15 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-0 right-1/3 w-96 h-96 bg-goldDark/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-navyCard via-goldDark/40 to-navyCard border-b border-goldPrimary/20 text-center py-2 px-4 text-xs md:text-sm text-goldLight font-medium z-50 relative flex items-center justify-center gap-2">
+        <i class="fa-solid fa-crown text-goldPrimary animate-bounce"></i>
+        <span>عرض خاص بمناسبة إطلاق التشكيلة الملكية: توصيل مجاني وسريع لكافة مناطق المملكة!</span>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-darkBg/85 backdrop-blur-md border-b border-goldPrimary/15 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-goldLight via-goldPrimary to-goldDark flex items-center justify-center shadow-gold-glow group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-moon text-darkBg text-2xl font-bold"></i>
+                </div>
+                <div>
+                    <span class="text-xl md:text-2xl font-black text-gold-gradient tracking-wide block">الهلالي للعطور</span>
+                    <span class="text-[10px] text-slate-400 block tracking-widest uppercase">AL-HILALI PERFUMES</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                <a href="#features" class="hover:text-goldPrimary transition">مميزاتنا</a>
+                <a href="#bestsellers" class="hover:text-goldPrimary transition">الأكثر طلباً</a>
+                <a href="#bundles" class="hover:text-goldPrimary transition">الباقات والهدايا</a>
+                <a href="#reviews" class="hover:text-goldPrimary transition">آراء العملاء</a>
+                <a href="#order" class="hover:text-goldPrimary transition">الطلب المباشر</a>
+            </nav>
+
+            <!-- Quick Action CTA -->
+            <div class="flex items-center gap-3">
+                <a href="#order" class="px-5 py-2.5 rounded-xl bg-gold-gradient text-darkBg font-bold text-xs md:text-sm shadow-gold-glow hover:scale-105 transition duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>طلب سريع</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-8 pb-16 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Right Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navyCard border border-goldPrimary/30 text-goldLight text-xs md:text-sm font-semibold shadow-gold-glow">
+                        <i class="fa-solid fa-sparkles text-goldPrimary"></i>
+                        <span>ثبات أسطوري يدوم لأكثر من 48 ساعة</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+                        فخامة العطور الملكية <br>
+                        <span class="text-gold-gradient">تجسيد للأناقة والجاذبية</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                        مجموعة حصرية نادرة مصممة بشغف بأعلى تركيزات العطور الفرنسية والشرقية الأصلية (Parfum Extrait). تمنحك حضوراً ساحراً وبصمة لا تُنسى في كل مناسبة.
+                    </p>
+
+                    <!-- Limited Time Offer Banner & Countdown -->
+                    <div class="glass-card p-4 sm:p-5 rounded-2xl max-w-lg mx-auto lg:mx-0 border-r-4 border-r-goldPrimary">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs sm:text-sm text-goldLight font-bold flex items-center gap-1.5">
+                                <i class="fa-solid fa-clock text-goldPrimary animate-pulse"></i>
+                                ينتهي العرض الخاص قريباً:
+                            </span>
+                            <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-red-950/80 text-red-300 font-bold border border-red-500/30">خصم 35% لفترة محدودة</span>
+                        </div>
+                        
+                        <!-- Countdown Timer Display -->
+                        <div class="grid grid-cols-4 gap-2 text-center" id="countdownTimer">
+                            <div class="bg-darkBg/80 p-2 rounded-xl border border-goldPrimary/20">
+                                <span class="text-lg sm:text-2xl font-black text-goldPrimary block" id="timerDays">02</span>
+                                <span class="text-[10px] text-slate-400">يوم</span>
+                            </div>
+                            <div class="bg-darkBg/80 p-2 rounded-xl border border-goldPrimary/20">
+                                <span class="text-lg sm:text-2xl font-black text-goldPrimary block" id="timerHours">14</span>
+                                <span class="text-[10px] text-slate-400">ساعة</span>
+                            </div>
+                            <div class="bg-darkBg/80 p-2 rounded-xl border border-goldPrimary/20">
+                                <span class="text-lg sm:text-2xl font-black text-goldPrimary block" id="timerMinutes">38</span>
+                                <span class="text-[10px] text-slate-400">دقيقة</span>
+                            </div>
+                            <div class="bg-darkBg/80 p-2 rounded-xl border border-goldPrimary/20">
+                                <span class="text-lg sm:text-2xl font-black text-goldPrimary block" id="timerSeconds">45</span>
+                                <span class="text-[10px] text-slate-400">ثانية</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#order" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gold-gradient text-darkBg font-extrabold text-base shadow-gold-strong hover:scale-105 transition duration-300 text-center flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-bag-shopping text-lg"></i>
+                            <span>اطلب عطرك المفضل الآن</span>
+                        </a>
+                        <a href="#bestsellers" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-navyCard hover:bg-navyLight text-goldLight font-bold text-base border border-goldPrimary/30 transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>استكشف التشكيلة</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Footprint -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-white">+15,000</div>
+                            <div class="text-xs text-slate-400">عميل سعيد في المملكة</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-goldPrimary">100%</div>
+                            <div class="text-xs text-slate-400">زيوت فرنسية أصلية</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-black text-white">4.9 ★</div>
+                            <div class="text-xs text-slate-400">تقييم الجودة والخدمة</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Left Visual Asset Container -->
+                <div class="lg:col-span-5 relative flex justify-center items-center">
+                    
+                    <!-- Decorative Radial Rings -->
+                    <div class="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] border border-goldPrimary/20 rounded-full animate-ping opacity-25 pointer-events-none"></div>
+                    <div class="absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] border border-goldPrimary/40 rounded-full pointer-events-none"></div>
+                    
+                    <!-- Main Hero Perfume Visual (SVG Composite) -->
+                    <div class="relative z-10 w-full max-w-[340px] sm:max-w-[400px] animate-float">
+                        <div class="glass-card p-6 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+                            
+                            <span class="absolute top-4 right-4 bg-gold-gradient text-darkBg text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                                الأكثر مبيعاً
+                            </span>
+
+                            <!-- Perfume Bottle SVG Illustration -->
+                            <div class="py-6 flex justify-center">
+                                <svg class="w-48 h-64 drop-shadow-[0_15px_25px_rgba(212,175,55,0.4)]" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Cap -->
+                                    <rect x="75" y="15" width="50" height="35" rx="6" fill="url(#goldGrad)" stroke="#F3E5AB" stroke-width="2"/>
+                                    <rect x="70" y="50" width="60" height="10" rx="2" fill="#AA820A"/>
+                                    <!-- Spray Nozzle Neck -->
+                                    <rect x="88" y="60" width="24" height="12" fill="#D4AF37"/>
+                                    <!-- Bottle Body -->
+                                    <path d="M40 85 C40 75, 160 75, 160 85 L155 240 C155 255, 45 255, 45 240 Z" fill="url(#glassGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+                                    <!-- Liquid Inside -->
+                                    <path d="M48 120 C48 120, 152 120, 152 120 L150 235 C150 248, 50 248, 50 235 Z" fill="url(#liquidGrad)" opacity="0.85"/>
+                                    <!-- Label Tag -->
+                                    <rect x="58" y="130" width="84" height="75" rx="4" fill="#0B0E17" stroke="#D4AF37" stroke-width="1.5"/>
+                                    <circle cx="100" cy="152" r="10" stroke="#D4AF37" stroke-width="1"/>
+                                    <text x="100" y="156" text-anchor="middle" fill="#F3E5AB" font-size="12" font-weight="bold" font-family="Cairo">★</text>
+                                    <text x="100" y="178" text-anchor="middle" fill="#F3E5AB" font-size="11" font-weight="bold" font-family="Cairo">العود الملكي</text>
+                                    <text x="100" y="193" text-anchor="middle" fill="#9A7B1C" font-size="8" font-family="Cairo">PARFUM EXTRAIT</text>
+                                    
+                                    <!-- Gradients Definitions -->
+                                    <defs>
+                                        <linearGradient id="goldGrad" x1="0" y1="0" x2="200" y2="280" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#F3E5AB"/>
+                                            <stop offset="0.5" stop-color="#D4AF37"/>
+                                            <stop offset="1" stop-color="#846508"/>
+                                        </linearGradient>
+                                        <linearGradient id="glassGrad" x1="0" y1="0" x2="200" y2="280" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#1A253A" stop-opacity="0.9"/>
+                                            <stop offset="1" stop-color="#0B0E17" stop-opacity="0.95"/>
+                                        </linearGradient>
+                                        <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="280" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#D4AF37" stop-opacity="0.9"/>
+                                            <stop offset="1" stop-color="#705204" stop-opacity="0.9"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-white">عطر "العود الملكي" - 100 مل</h3>
+                            <div class="text-xs text-goldLight mt-1">تركيز إكسير عالي الثبات (Extrait de Parfum)</div>
+                            
+                            <div class="mt-4 flex items-center justify-center gap-3">
+                                <span class="text-xs text-slate-400 line-through">290 ر.س</span>
+                                <span class="text-xl font-black text-goldPrimary">189 ر.س</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES & VALUE PROPOSITIONS SECTION -->
+    <section id="features" class="py-16 bg-navyCard/40 border-y border-goldPrimary/15 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-goldPrimary uppercase tracking-widest block mb-2">لماذا الهلالي للعطور؟</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white">معايير فخامة لا نتقبل فيها المساومة</h2>
+                <div class="w-16 h-1 bg-gold-gradient mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-2xl text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-goldLight/20 to-goldDark/20 border border-goldPrimary/40 flex items-center justify-center mx-auto text-goldPrimary text-3xl shadow-gold-glow">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">ثبات عالٍ يدوم 48 ساعة</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        نستخدم أعلى نسبة تركيز عتبي مع زيوت تثبيت نادرة تضمن فواحاناً ساحراً يدوم طويلاً على الأقمشة والبشرة.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-2xl text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-goldLight/20 to-goldDark/20 border border-goldPrimary/40 flex items-center justify-center mx-auto text-goldPrimary text-3xl shadow-glow">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">تركيزات أصلية 100%</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        مكونات عطرية نادرة مستوردة خصيصاً من مدينة جراس الفرنسية ومزجت بأرقى نفحات العود والمسك الأصيل.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-2xl text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-goldLight/20 to-goldDark/20 border border-goldPrimary/40 flex items-center justify-center mx-auto text-goldPrimary text-3xl shadow-glow">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">توصيل سريع وضمان ذهبي</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        شحن آمن وفوري لباب منزلكم مع ضمان استرجاع واستبدال كامل وبدون أي أسئلة في حال لم يعجبك العطر.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS SECTION -->
+    <section id="bestsellers" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold text-goldPrimary uppercase tracking-widest block mb-2">التشكيلة الفاخرة</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white">العطور الأكثر طلباً وشهرة</h2>
+                </div>
+                <p class="text-slate-400 text-xs sm:text-sm mt-3 md:mt-0 max-w-md">
+                    اختر عطرك المفضل الآن للاستفادة من خصم الإطلاق والتوصيل المجاني الشامل.
+                </p>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Perfume 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="p-6 relative text-center bg-gradient-to-b from-navyLight/50 to-transparent">
+                        <span class="absolute top-3 right-3 bg-red-950/80 text-red-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-red-500/30">خصم 35%</span>
+                        <div class="w-32 h-44 mx-auto my-4 group-hover:scale-105 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-bottle-droplet text-6xl text-goldPrimary drop-shadow-gold-glow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-1 text-goldPrimary text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-[11px] mr-1">(4.9)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">العود الملكي (Royal Oud)</h3>
+                        <p class="text-xs text-slate-400 line-clamp-2">نفحات العود المبخر، خشب الصندل، ولمسة عنبر ناعمة.</p>
+                        <div class="text-[11px] text-goldLight font-semibold">100 مل | Extrait de Parfum</div>
+                        
+                        <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                            <div>
+                                <span class="text-xs text-slate-500 line-through block">290 ر.س</span>
+                                <span class="text-lg font-black text-goldPrimary">189 ر.س</span>
+                            </div>
+                            <button onclick="selectPerfume('العود الملكي - 189 ر.س')" class="px-3.5 py-2 rounded-xl bg-gold-gradient text-darkBg text-xs font-bold shadow-gold-glow hover:scale-105 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>طلب سريع</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="p-6 relative text-center bg-gradient-to-b from-navyLight/50 to-transparent">
+                        <span class="absolute top-3 right-3 bg-gold-gradient text-darkBg text-[10px] font-black px-2.5 py-1 rounded-full uppercase">الأكثر فخامة</span>
+                        <div class="w-32 h-44 mx-auto my-4 group-hover:scale-105 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-spray-can-sparkles text-6xl text-goldLight drop-shadow-gold-glow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-1 text-goldPrimary text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-[11px] mr-1">(5.0)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">سحر المسك (Magic Musk)</h3>
+                        <p class="text-xs text-slate-400 line-clamp-2">أجود أنواع المسك الأبيض، بودرة الفانيلا، والياسمين الجبلي.</p>
+                        <div class="text-[11px] text-goldLight font-semibold">100 مل | Eau de Parfum</div>
+                        
+                        <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                            <div>
+                                <span class="text-xs text-slate-500 line-through block">260 ر.س</span>
+                                <span class="text-lg font-black text-goldPrimary">169 ر.س</span>
+                            </div>
+                            <button onclick="selectPerfume('سحر المسك - 169 ر.س')" class="px-3.5 py-2 rounded-xl bg-gold-gradient text-darkBg text-xs font-bold shadow-gold-glow hover:scale-105 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>طلب سريع</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="p-6 relative text-center bg-gradient-to-b from-navyLight/50 to-transparent">
+                        <span class="absolute top-3 right-3 bg-red-950/80 text-red-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-red-500/30">خصم 30%</span>
+                        <div class="w-32 h-44 mx-auto my-4 group-hover:scale-105 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-gem text-6xl text-goldPrimary drop-shadow-gold-glow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-1 text-goldPrimary text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-slate-400 text-[11px] mr-1">(4.8)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">لورد الأناقة (Lord Elegance)</h3>
+                        <p class="text-xs text-slate-400 line-clamp-2">خلاصة الجلد الفاخر، البرغموت الإيطالي، والهيل الفواح.</p>
+                        <div class="text-[11px] text-goldLight font-semibold">100 مل | Extrait de Parfum</div>
+                        
+                        <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                            <div>
+                                <span class="text-xs text-slate-500 line-through block">280 ر.س</span>
+                                <span class="text-lg font-black text-goldPrimary">195 ر.س</span>
+                            </div>
+                            <button onclick="selectPerfume('لورد الأناقة - 195 ر.س')" class="px-3.5 py-2 rounded-xl bg-gold-gradient text-darkBg text-xs font-bold shadow-gold-glow hover:scale-105 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>طلب سريع</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Perfume 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="p-6 relative text-center bg-gradient-to-b from-navyLight/50 to-transparent">
+                        <span class="absolute top-3 right-3 bg-purple-950/80 text-purple-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-purple-500/30">عطر نسائي ساحر</span>
+                        <div class="w-32 h-44 mx-auto my-4 group-hover:scale-105 transition duration-300 flex items-center justify-center">
+                            <i class="fa-solid fa-wand-magic-sparkles text-6xl text-pink-300 drop-shadow-gold-glow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center gap-1 text-goldPrimary text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-400 text-[11px] mr-1">(4.9)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">زهرة اللوتس (Lotus Bloom)</h3>
+                        <p class="text-xs text-slate-400 line-clamp-2">أزهار دمشقية نادرة، التوت البري، ودفء الفانيلا الملكية.</p>
+                        <div class="text-[11px] text-goldLight font-semibold">100 مل | Parfum Extrait</div>
+                        
+                        <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                            <div>
+                                <span class="text-xs text-slate-500 line-through block">250 ر.س</span>
+                                <span class="text-lg font-black text-goldPrimary">175 ر.س</span>
+                            </div>
+                            <button onclick="selectPerfume('زهرة اللوتس - 175 ر.س')" class="px-3.5 py-2 rounded-xl bg-gold-gradient text-darkBg text-xs font-bold shadow-gold-glow hover:scale-105 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>طلب سريع</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BUNDLES & SPECIAL OFFERS SECTION -->
+    <section id="bundles" class="py-16 bg-gradient-to-b from-navyCard/60 via-darkBg to-navyCard/60 border-y border-goldPrimary/20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3 py-1 rounded-full bg-goldPrimary/20 text-goldLight text-xs font-bold border border-goldPrimary/40">وفر أكثر مع الباقات الملكية</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3">العروض الخاصة وباقات الهدايا</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Bundle 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl relative border-2 border-goldPrimary/50 flex flex-col justify-between shadow-gold-glow">
+                    <span class="absolute -top-3.5 right-6 bg-gold-gradient text-darkBg text-xs font-black px-4 py-1 rounded-full">
+                        العرض الأقوى - اشتري 2 واحصل على 1 مجاناً
+                    </span>
+
+                    <div class="space-y-4 pt-2">
+                        <h3 class="text-2xl font-black text-white">باقة الثلاثية الملكية (The Royal Trio)</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            اختر أي 3 عطور من تشكيلة العطور الأكثر مبيعاً، وادفع قيمة عطرين فقط مع تغليف هدايا فاخر وتوصيل مجاني.
+                        </p>
+                        
+                        <ul class="text-xs text-slate-300 space-y-2 py-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>شاملة تغليف الهدايا الراقية الخاص بالمتجر.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>شحن وتوصيل مجاني فوري لجميع المدن.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>عينة تجريبية إضافية مجاناً مع الطلب.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 flex items-center justify-between border-t border-slate-800">
+                        <div>
+                            <span class="text-xs text-slate-400 line-through block">570 ر.س</span>
+                            <span class="text-2xl font-black text-goldPrimary">350 ر.س فقط</span>
+                        </div>
+                        <button onclick="selectPerfume('باقة الثلاثية الملكية (3 عطور) - 350 ر.س')" class="px-6 py-3 rounded-xl bg-gold-gradient text-darkBg font-black text-xs sm:text-sm shadow-gold-strong hover:scale-105 transition">
+                            اطلب الباقة الآن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bundle 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl relative flex flex-col justify-between">
+                    <span class="absolute -top-3.5 right-6 bg-purple-900 text-purple-200 text-xs font-bold px-4 py-1 rounded-full border border-purple-500/40">
+                        صندوق الهدايا النخبوية
+                    </span>
+
+                    <div class="space-y-4 pt-2">
+                        <h3 class="text-2xl font-black text-white">صندوق الهدايا الفاخر (VIP Gift Box)</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            عطرين بحجم 100 مل من اختيارك + ربع توله دهن عود سيوفي طبيعي مع مبخرة سيراميك مطلية بماء الذهب.
+                        </p>
+                        
+                        <ul class="text-xs text-slate-300 space-y-2 py-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>صندوق خشبي مبطن بالمخمل الملكي.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>إمكانية كتابة كرت إهداء مخصص مجاناً.</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-check text-goldPrimary"></i>
+                                <span>ضمان ذهبي ممتد للاستبدال.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 flex items-center justify-between border-t border-slate-800">
+                        <div>
+                            <span class="text-xs text-slate-400 line-through block">650 ر.س</span>
+                            <span class="text-2xl font-black text-goldPrimary">420 ر.س</span>
+                        </div>
+                        <button onclick="selectPerfume('صندوق الهدايا الفاخر - 420 ر.س')" class="px-6 py-3 rounded-xl bg-navyLight border border-goldPrimary/40 text-goldLight font-bold text-xs sm:text-sm hover:bg-goldPrimary hover:text-darkBg transition duration-300">
+                            طلب باقة الهدايا
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS SECTION -->
+    <section id="reviews" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-goldPrimary uppercase tracking-widest block mb-2">تجارب حقيقية</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white">ماذا يقول عملاؤنا عن عطور الهلالي؟</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Review 1 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-goldPrimary/20 text-goldPrimary font-bold flex items-center justify-center border border-goldPrimary/40">
+                                م.ع
+                            </div>
+                            <div>
+                                <div class="font-bold text-white text-sm">محمد العتيبي</div>
+                                <div class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check"></i> مشتري موثق (الرياض)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-goldPrimary text-xs">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "صراحة عطر العود الملكي أسطوري! رشيت العطر قبل الثوب بيومين وللحين الريحة فواحة بشكل مو طبيعي. التوصيل كان سريع خلال 24 ساعة للرياض."
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-300 font-bold flex items-center justify-center border border-purple-500/40">
+                                س.ش
+                            </div>
+                            <div>
+                                <div class="font-bold text-white text-sm">سارة الشمري</div>
+                                <div class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check"></i> مشتري موثق (جدة)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-goldPrimary text-xs">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "طلبت باقة الهدايا الفاخرة لزوجي بمناسبة ترقيته، الصندوق الفاخر والتغليف يواجهون، وريحة عطر سحر المسك تاخذ العقل. أنصح فيهم بشدة."
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-300 font-bold flex items-center justify-center border border-blue-500/40">
+                                د.ف
+                            </div>
+                            <div>
+                                <div class="font-bold text-white text-sm">د. فهد القحطاني</div>
+                                <div class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check"></i> مشتري موثق (الدمام)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-goldPrimary text-xs">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "جربت عطر لورد الأناقة، التوازن بين جلد الفخامة والهيل رائع ومميز جداً. خدمة العملاء عندهم متجاوبة ومحترفة."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DIRECT ORDER FORM VIA WHATSAPP -->
+    <section id="order" class="py-20 bg-navyCard/70 border-t border-goldPrimary/20 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="glass-card p-6 sm:p-10 rounded-3xl border-2 border-goldPrimary/40 shadow-gold-strong relative">
+                
+                <div class="text-center space-y-3 mb-8">
+                    <div class="w-14 h-14 rounded-full bg-gold-gradient text-darkBg flex items-center justify-center mx-auto text-2xl font-bold shadow-gold-glow">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white">نموذج الطلب المباشر الفوري</h2>
+                    <p class="text-xs sm:text-sm text-slate-300">أدخل بياناتك وسنقوم بتحويل طلبك فوراً لممثل المبيعات عبر الواتساب لإتمامه بدون أي تعقيد!</p>
+                </div>
+
+                <form id="perfumeOrderForm" onsubmit="handleOrderSubmit(event)" class="space-y-5">
+                    
+                    <!-- Selected Product Dropdown -->
+                    <div>
+                        <label class="block text-xs font-bold text-goldLight mb-2">اختر العطر أو الباقة المطلوبة *</label>
+                        <select id="productSelect" required class="w-full bg-darkBg/90 border border-goldPrimary/30 rounded-xl px-4 py-3.5 text-slate-100 text-sm focus:outline-none focus:border-goldPrimary transition">
+                            <option value="العود الملكي - 189 ر.س">عطر العود الملكي - 189 ر.س (خصم 35%)</option>
+                            <option value="سحر المسك - 169 ر.س">عطر سحر المسك - 169 ر.س</option>
+                            <option value="لورد الأناقة - 195 ر.س">عطر لورد الأناقة - 195 ر.س</option>
+                            <option value="زهرة اللوتس - 175 ر.س">عطر زهرة اللوتس - 175 ر.س</option>
+                            <option value="باقة الثلاثية الملكية (3 عطور) - 350 ر.س">باقة الثلاثية الملكية (3 عطور) - 350 ر.س (عرض خاص)</option>
+                            <option value="صندوق الهدايا الفاخر - 420 ر.س">صندوق الهدايا الفاخر (VIP) - 420 ر.س</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Customer Name -->
+                        <div>
+                            <label class="block text-xs font-bold text-goldLight mb-2">الاسم الكامل *</label>
+                            <input type="text" id="custName" placeholder="أدخل اسمك الكريم" required class="w-full bg-darkBg/90 border border-goldPrimary/30 rounded-xl px-4 py-3.5 text-slate-100 text-sm focus:outline-none focus:border-goldPrimary transition">
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div>
+                            <label class="block text-xs font-bold text-goldLight mb-2">رقم الجوال (واتساب) *</label>
+                            <input type="tel" id="custPhone" placeholder="05xxxxxxxx" required class="w-full bg-darkBg/90 border border-goldPrimary/30 rounded-xl px-4 py-3.5 text-slate-100 text-sm focus:outline-none focus:border-goldPrimary transition">
+                        </div>
+                    </div>
+
+                    <!-- City & Address -->
+                    <div>
+                        <label class="block text-xs font-bold text-goldLight mb-2">المدينة وعنوان التوصيل *</label>
+                        <input type="text" id="custAddress" placeholder="مثال: الرياض - حي الملقا - شارع التخصصي" required class="w-full bg-darkBg/90 border border-goldPrimary/30 rounded-xl px-4 py-3.5 text-slate-100 text-sm focus:outline-none focus:border-goldPrimary transition">
+                    </div>
+
+                    <!-- Notes -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 mb-2">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="custNotes" rows="2" placeholder="أين ترغب في توصيل الشحنة؟ أو كتابة إهداء..." class="w-full bg-darkBg/90 border border-goldPrimary/30 rounded-xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-goldPrimary transition"></textarea>
+                    </div>
+
+                    <!-- Security / Guarantee badge inside form -->
+                    <div class="bg-darkBg/60 p-3 rounded-xl border border-goldPrimary/20 flex items-center justify-between text-xs text-slate-300">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-goldPrimary"></i>
+                            الدفع عند الاستلام متاح | الدفع الآمن
+                        </span>
+                        <span class="text-goldLight font-bold">توصيل مجاني</span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gold-gradient text-darkBg font-black text-base shadow-gold-strong hover:scale-[1.02] transition duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>تأكيد الطلب المباشر عبر الواتساب</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-darkBg border-t border-goldPrimary/20 pt-16 pb-12 relative z-10 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center font-bold text-darkBg">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <span class="text-xl font-black text-gold-gradient">الهلالي للعطور</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        علامة سعودية مسجلة متخصصة في صناعة وتطوير العطور الفاخرة ذات الثبات العالي، مستلهمة من عراقة التراث الشرقي وأناقة العطور الفرنسية العالمية.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 text-goldPrimary text-lg">
+                        <a href="#" class="hover:text-goldLight transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-goldLight transition"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="hover:text-goldLight transition"><i class="fa-brands fa-snapchat"></i></a>
+                        <a href="#" class="hover:text-goldLight transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Guarantee & Service -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm border-r-2 border-goldPrimary pr-2">الضمان الذهبي</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        نضمن لك الجودة والثبات. يمكنك تجربة العينة المرفقة، وفي حال عدم رضاك التام يمكنك استرجاع المبلغ كاملاً بدون أي رسوم إضافية.
+                    </p>
+                </div>
+
+                <!-- Contact & Logistics -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-sm border-r-2 border-goldPrimary pr-2">التواصل والدعم</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-goldPrimary"></i>
+                            <span>خدمة العملاء: +966 50 123 4567</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-goldPrimary"></i>
+                            <span>support@alhilali-perfumes.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-goldPrimary"></i>
+                            <span>المملكة العربية السعودية - الرياض</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-right">
+                <div>
+                    جميع الحقوق محفوظة © 2026 - لمتجر الهلالي للعطور | تصميم وتطوير احترافي
+                </div>
+                <div class="flex items-center gap-4 text-[11px] text-slate-500">
+                    <span>سياسة الخصوصية</span>
+                    <span>•</span>
+                    <span>الشروط والأحكام</span>
+                    <span>•</span>
+                    <span>الاستبدال والاسترجاع</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toastNotification" class="fixed bottom-6 left-6 z-50 transform translate-y-32 opacity-0 transition-all duration-500 glass-card p-4 rounded-2xl border border-goldPrimary/40 flex items-center gap-3 shadow-2xl max-w-xs">
+        <div class="w-10 h-10 rounded-full bg-gold-gradient text-darkBg flex items-center justify-center font-bold text-lg shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <div id="toastTitle" class="font-bold text-white text-xs">تم اختيار العطر بنجاح!</div>
+            <div id="toastDesc" class="text-[11px] text-slate-300">تم تحديث النموذج، يمكنك إكمال الطلب الآن.</div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions Engine -->
+    <script>
+        // Select Perfume & Auto Scroll to Order Form
+        function selectPerfume(productName) {
+            const selectElem = document.getElementById('productSelect');
+            if (selectElem) {
+                // Find matching option or set value
+                let found = false;
+                for (let i = 0; i < selectElem.options.length; i++) {
+                    if (selectElem.options[i].value.includes(productName.split(' - ')[0])) {
+                        selectElem.selectedIndex = i;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    selectElem.value = productName;
+                }
+            }
+
+            // Show Toast Notification
+            showToast('تم اختيار ' + productName.split(' - ')[0], 'تم توجيهك لنموذج الطلب المباشر');
+
+            // Smooth Scroll to Order Form
+            const orderSection = document.getElementById('order');
+            if (orderSection) {
+                orderSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Show Toast Function
+        function showToast(title, desc) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastDesc').innerText = desc;
+            
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+
+        // Handle Form Submission -> WhatsApp Direct Integration
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+
+            const product = document.getElementById('productSelect').value;
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            const notes = document.getElementById('custNotes').value;
+
+            // Target Store WhatsApp Number (Saudi format example)
+            const targetWhatsApp = "966501234567";
+
+            // Format Structured Message
+            let message = `مرحباً متجر الهلالي للعطور 🌙✨\nأود تأكيد طلب العطر التالي:\n\n`;
+            message += `📦 *الطلب:* ${product}\n`;
+            message += `👤 *الاسم:* ${name}\n`;
+            message += `📱 *رقم الجوال:* ${phone}\n`;
+            message += `📍 *العنوان:* ${address}\n`;
+            if (notes.trim() !== "") {
+                message += `📝 *ملاحظات:* ${notes}\n`;
+            }
+            message += `\nأرجو تأكيد الشحن والتوصيل. شكراً لكم!`;
+
+            // Encode URL
+            const whatsappUrl = `https://wa.me/${targetWhatsApp}?text=${encodeURIComponent(message)}`;
+
+            // Open WhatsApp in new tab/app
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Countdown Timer Logic
+        function startCountdown() {
+            let hours = 14, minutes = 38, seconds = 45;
+            
+            setInterval(() => {
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    seconds = 59;
+                    if (minutes > 0) {
+                        minutes--;
+                    } else {
+                        minutes = 59;
+                        if (hours > 0) {
+                            hours--;
+                        }
+                    }
+                }
+                
+                document.getElementById('timerHours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('timerMinutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('timerSeconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }, 1000);
+        }
+
+        // Run On Page Load
+        window.onload = function() {
+            startCountdown();
+        };
+    </script>
+
+</body>
+</html>
